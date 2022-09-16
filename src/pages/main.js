@@ -5,9 +5,19 @@ import { useState } from "react"
 
 const Main = () => {
     const [isActive, setActive] = useState(false)
+    const [slideOut, setSlideOut] = useState(false)
 
     const handleToggle = () => {
-        setActive(!isActive)
+        if (isActive) {
+            setSlideOut(true)
+            
+            setTimeout(() => {
+                setActive(false)
+                setSlideOut(false)
+            }, 750);
+        } else {
+            setActive(!isActive)
+        }
     }
 
     return (
@@ -24,7 +34,7 @@ const Main = () => {
                 </div>
             }>
 
-            <Contact stateChanger={handleToggle} isActive={isActive} className="bg-white"></Contact>
+            <Contact stateChanger={handleToggle} slideOut={slideOut} isActive={isActive} className="bg-white"></Contact>
 
             <div className="py-12 bg-white mt-20">
                 <div className="container max-w-xl mx-auto">

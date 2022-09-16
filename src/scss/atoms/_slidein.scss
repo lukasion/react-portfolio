@@ -1,0 +1,18 @@
+.slidein {
+    
+    &--left {
+        animation: slidein .75s;
+        animation-fill-mode: forwards;
+        animation-timing-function: cubic-bezier(0.445, 0.05, 0.55, 0.95);
+        
+        @keyframes slidein {
+            from {
+              transform: translateX(-100%);
+            }
+          
+            to {
+              transform: translateX(0%);
+            }
+        }
+    }
+}
